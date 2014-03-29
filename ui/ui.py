@@ -2,7 +2,7 @@
 import requests
 from flask import Flask, request
 
-BASE_URL = 'https://localhost:8081'
+BASE_URL = 'http://localhost:8081'
 
 app = Flask(__name__)
 
