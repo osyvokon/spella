@@ -670,7 +670,7 @@ AtDCore.prototype.isIE = function() {
              
             var lang = plugin.editor.getParam('languagetool_i18n_current_lang')();
             var explainText = plugin.editor.getParam('languagetool_i18n_explain')[lang] || "Explain...";
-            var ignoreThisText = plugin.editor.getParam('languagetool_i18n_ignore_once')[lang] || "Ignore this error";
+            var ignoreThisText = plugin.editor.getParam('languagetool_i18n_ignore_once')[lang] || "Пропустити помилку";
             var ruleImplementation = "Rule implementation"; //plugin.editor.getParam('languagetool_i18n_rule_implementation')[lang] || "Rule implementation";
             //var ignoreThisKindOfErrorText = plugin.editor.getParam('languagetool_i18n_ignore_all')[lang] || "Ignore this kind of error";
              
@@ -704,10 +704,12 @@ AtDCore.prototype.isIE = function() {
               ruleUrl += "subId=" + encodeURI(errorDescription["subid"]) + "&";
             }
             ruleUrl += "lang=" + encodeURI(langCode);
+            /*
             m.add({
                title : ruleImplementation,
                onclick : function() { window.open(ruleUrl, '_blank'); }
             });
+            */
 
             /*m.add({
               title : ignoreThisKindOfErrorText,

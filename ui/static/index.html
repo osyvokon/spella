@@ -60,7 +60,19 @@
   function doit() {
      var langCode = "uk";
      tinyMCE.activeEditor.execCommand("mceWritingImprovementTool", langCode);
+     woodoo();
   }
+
+function woodoo() {
+  var x = Math.floor(Math.random() * 9);
+  var img = "/static/img/" + x + ".jpg";
+  $("#sprite").attr("src", img);
+  $("#sprite").animate({left: "+=1000"}, 200, "swing", function() {
+    setTimeout(function() {
+      $("#sprite").animate({left: "-=1000"}, 200, "swing");
+      }, 1500);
+    });
+}
 </script>
 
 
@@ -69,14 +81,18 @@
   <div id="checktextpara" style="">
       <textarea id="checktext" name="text" style="width: 100%"
         rows="6">Пишіть тут.</textarea>
-  </p>
  
   <div style="margin-top:0px; text-align: right">
       <input type="submit" name="_action_checkText"
           value="Перевірити!" onClick="doit();return false;">
   </div>
+
+  </div>
+
  
 </form>
+
+  <img id="sprite" src='/static/img/1.jpg' >
 
 <style>
   #checktextpara {
@@ -86,6 +102,26 @@
     margin-right: 20%;
     border-radius: 6px;
     box-shadow: 5px 5px 2px #ddd;
+  }
+
+  #sprite {
+    position: absolute;
+    left: -1000px;
+    bottom: 0px;
+  }
+
+  body:after
+  {
+    content: url(/static/img/0.jpg)
+             url(/static/img/1.jpg)
+             url(/static/img/2.jpg)
+             url(/static/img/3.jpg)
+             url(/static/img/4.jpg)
+             url(/static/img/5.jpg)
+             url(/static/img/6.jpg)
+             url(/static/img/7.jpg)
+             url(/static/img/8.jpg);
+    display: none;
   }
 </style>
 
