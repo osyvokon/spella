@@ -66,17 +66,28 @@
 
 <form name="checkform" action="http://localhost:8080" method="get">
  
-  <p id="checktextpara">
+  <div id="checktextpara" style="">
       <textarea id="checktext" name="text" style="width: 100%"
-        rows="6">Paste your own text here... or check check this text.</textarea>
+        rows="6">Пишіть тут.</textarea>
   </p>
  
   <div style="margin-top:0px; text-align: right">
       <input type="submit" name="_action_checkText"
-          value="Check Text" onClick="doit();return false;">
+          value="Перевірити!" onClick="doit();return false;">
   </div>
  
 </form>
+
+<style>
+  #checktextpara {
+    border: 1px solid #777;
+    margin-top: 100px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 6px;
+    box-shadow: 5px 5px 2px #ddd;
+  }
+</style>
 
 
   </body>
