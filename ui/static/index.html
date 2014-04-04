@@ -10,28 +10,25 @@
 
   <body>
 
-<form name="checkform" action="/" method="get">
- 
-  <div id="checktextpara" style="">
-      <textarea id="checktext" name="text" style="width: 100%"
-        rows="6">Пане Азаров, за кожну помилку ви будете отримувати віговор, а за кожне исправление помилки — премию. Роботи ще багато, всф охочі допомгти -- будь-ласка, не стесняйтесь приймати участь.</textarea>
- 
-  <div style="margin-top:0px; text-align: right">
-      <input type="submit" name="_action_checkText"
-          value="Перевірити!" onClick="doit();return false;">
-  </div>
+    <form name="checkform" action="/" method="get">
 
-  </div>
+      <div id="checktextpara" style="">
+        <textarea id="checktext" name="text" style="width: 100%" rows="12">Пане Азаров, за кожну помилку ви будете отримувати віговор, а за кожне исправление помилки — премию. Роботи ще багато, всф охочі допомгти -- будь-ласка, не стесняйтесь приймати участь.</textarea>
 
- 
-</form>
+        <div style="margin-top:0px; margin-right: 20px; text-align: right">
+          <a href="/about.html">Дізнатися про проект</a> або
+          <input type="submit" name="_action_checkText" value="Перевірити!" onClick="doit();return false;">
+        </div>
+      </div>
 
-  <img id="sprite" src='/img/1.jpg' >
+    </form>
+
+    <img id="sprite" src='/img/1.jpg' >
 
 <style>
   #checktextpara {
     border: 1px solid #777;
-    height: 10em;
+    height: 15em;
     margin-top: 50px;
     margin-left: 20%;
     margin-right: 20%;
@@ -45,6 +42,11 @@
     bottom: 0px;
   }
 
+  body {
+    font-family: sans-serif;
+  }
+
+  /* Preload images */
   body:after
   {
     content: url(/img/0.jpg)
