@@ -13,9 +13,9 @@ var init = function() {
      languagetool_i18n_ignore_once : { "uk-UA": "Пропустити помилку" },
      languagetool_i18n_ignore_all : { "uk-UA": "Пропустити всі подібні помилки" },
      languagetool_i18n_current_lang : function() { return "en-US"; },
-     languagetool_rpc_url : "http://localhost:8080/proxy?",
+     languagetool_rpc_url : "/proxy?",
      languagetool_css_url :
-         "http://localhost:8080/js/" +
+         "/js/" +
          "tiny_mce/plugins/atd-tinymce/css/content.css",
      theme                              : "advanced",
      theme_advanced_buttons1            : "",
