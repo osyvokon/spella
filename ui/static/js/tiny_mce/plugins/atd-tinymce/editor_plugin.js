@@ -687,6 +687,7 @@ AtDCore.prototype.isIE = function() {
                m.addSeparator();
             }
 
+            /*
             m.add({
                title : ignoreThisText,
                onclick : function() 
@@ -695,6 +696,7 @@ AtDCore.prototype.isIE = function() {
                   t._checkDone();
                }
             });
+            */
            
             var langCode = $('#lang').val();
             // NOTE: this link won't work (as of March 2014) for false friend rules:
