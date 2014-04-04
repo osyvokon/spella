@@ -1,82 +1,16 @@
 <html>
+  <head>
+    <title>SpellChecker.com.ua | Перевірка правопису, виправлення русизмів, допомога в вивченні української мови</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script>
+    <script type="text/javascript" src="js/tiny_mce/plugins/atd-tinymce/editor_plugin.js"></script>
+    <script type="text/javascript" src="js/spella.js"></script>
+  </head>
+
   <body>
-<script type="text/javascript"
-    src="http://localhost:8080/static/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript"
-    src="http://localhost:8080/static/js/tiny_mce/tiny_mce.js"></script>
-<script type="text/javascript"
-    src="http://localhost:8080/static/js/tiny_mce/plugins/atd-tinymce/editor_plugin.js"></script>
- 
-<script language="javascript" type="text/javascript">  
-  tinyMCE.init({
-     mode : "textareas",
-     plugins : "AtD,paste",
-     paste_text_sticky : true,
-     setup : function(ed) {
-         ed.onInit.add(function(ed) {
-             ed.pasteAsPlainText = true;
-         });
-     },  
-     /* translations: */
-     languagetool_i18n_no_errors : {
-         // "No errors were found.":
-         "uk-UA": "Помилок не знайдено"
-     },
-     languagetool_i18n_explain : {
-         // "Explain..." - shown if there is an URL with a detailed description:
-         "uk-UA": "Більше..."
-     },
-     languagetool_i18n_ignore_once : {
-         // "Ignore this error":
-         "uk-UA": "Пропустити помилку"
-     },
-     languagetool_i18n_ignore_all : {
-         // "Ignore this kind of error":
-         "uk-UA": "Пропустити всі подібні помилки"
-     },
- 
-     languagetool_i18n_current_lang :
-         function() { return "en-US"; },
-     /* the URL of your proxy file - must be hosted on your domain: */
-     languagetool_rpc_url : "http://localhost:8080/proxy?",
-     /* edit this file to customize how LanguageTool shows errors: */
-     languagetool_css_url :
-         "http://localhost:8080/static/js/" +
-         "tiny_mce/plugins/atd-tinymce/css/content.css",
-     /* this stuff is a matter of preference: */
-     theme                              : "advanced",
-     theme_advanced_buttons1            : "",
-     theme_advanced_buttons2            : "",
-     theme_advanced_buttons3            : "",
-     theme_advanced_toolbar_location    : "none",
-     theme_advanced_toolbar_align       : "left",
-     theme_advanced_statusbar_location  : "bottom",
-     theme_advanced_path                : false,
-     theme_advanced_resizing            : true,
-     theme_advanced_resizing_use_cookie : false,
-     gecko_spellcheck                   : false
-  });
- 
-  function doit() {
-     var langCode = "uk";
-     tinyMCE.activeEditor.execCommand("mceWritingImprovementTool", langCode);
-     woodoo();
-  }
 
-function woodoo() {
-  var x = Math.floor(Math.random() * 8);
-  var img = "/static/img/" + x + ".jpg";
-  $("#sprite").attr("src", img);
-  $("#sprite").animate({left: "+=1000"}, 200, "swing", function() {
-    setTimeout(function() {
-      $("#sprite").animate({left: "-=1000"}, 200, "swing");
-      }, 1500);
-    });
-}
-</script>
-
-
-<form name="checkform" action="http://localhost:8080" method="get">
+<form name="checkform" action="/" method="get">
  
   <div id="checktextpara" style="">
       <textarea id="checktext" name="text" style="width: 100%"
@@ -92,7 +26,7 @@ function woodoo() {
  
 </form>
 
-  <img id="sprite" src='/static/img/1.jpg' >
+  <img id="sprite" src='/img/1.jpg' >
 
 <style>
   #checktextpara {
@@ -113,15 +47,15 @@ function woodoo() {
 
   body:after
   {
-    content: url(/static/img/0.jpg)
-             url(/static/img/1.jpg)
-             url(/static/img/2.jpg)
-             url(/static/img/3.jpg)
-             url(/static/img/4.jpg)
-             url(/static/img/5.jpg)
-             url(/static/img/6.jpg)
-             url(/static/img/7.jpg)
-             url(/static/img/8.jpg);
+    content: url(/img/0.jpg)
+             url(/img/1.jpg)
+             url(/img/2.jpg)
+             url(/img/3.jpg)
+             url(/img/4.jpg)
+             url(/img/5.jpg)
+             url(/img/6.jpg)
+             url(/img/7.jpg)
+             url(/img/8.jpg);
     display: none;
   }
 </style>
