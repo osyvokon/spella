@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <title>SpellChecker.com.ua | Перевірка правопису, виправлення русизмів, допомога в вивченні української мови</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css" media="all" />
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="js/tiny_mce/tiny_mce.js"></script>
+    <script type="text/javascript" src="js/tiny_mce/plugins/atd-tinymce/editor_plugin.js"></script>
+    <script type="text/javascript" src="js/spella.js"></script>
+  </head>
+
+  <body class="container">
+
+    <div class="container ">
+
+
+    <form  name="checkform" action="/" method="get">
+
+      <div id="checktextpara" style="">
+        <textarea id="checktext" name="text" style="width: 100%" rows="12">Приклад тексту з помилками та російським словами: <br/> <br/>
+
+          Пане Азаров, за кожну помилку ви будете отримувати віговор, а за кожне исправление помилки — премию.
+          
+          Роботи ще багато, всф охочі допомгти -- будь-ласка, не стесняйтесь приймати участь.
+        </textarea>
+
+        <div style="margin-top:0px; margin-right: 20px; text-align: right">
+          <input type="submit" name="_action_checkText" value="Перевірити!" onClick="doit();return false;">
+        </div>
+      </div>
+    </form>
+    </div>
+
+  <div class='container'>
+
+    <h2>Що це?</h2>
+
+    <p><b><a href="http://spellchecker.com.ua">SpellChecker.com.ua</a></b> — це додаток, який перевіряє тексти на
+    наявність помилок та допомагає писати чистою українською людям, для яких
+    основною мовою є російська.  Працює подібно до звичайного spell checker'а в
+    браузері (або OpenOffice), але робить набагато більше:
+
+    <ul>
+      <li> Знаходить не тільки граматичні, але й стилістичні помилки. </li>
+      <li> Виправляє русизми. Наприклад, "приймати участь"  → "брати участь". </li>
+      <li> Пропонує переклад російських слів і сталих виразів, якщо такі трапляться в тексті. </li>
+      <li> Пропонує синоніми для слів та сталих виразів. <b>(TODO)</b> </li>
+      <li> Працює в усіх програмах: браузерах, скайпі, офісних пакетах тощо. <b>(TODO)</b> </li>
+      <li> Можливість запам’ятовувати виправлені помилки для подальшого тренування (щоб не робити ті самі типи помилок знову). <b>(TODO)</b> </li>
+      <li> Вміє ставити наголоси <b>(TODO)</b> </li>
+      <li> Open source, завжди буде відкритим та безкоштовним. </li>
+    </ul>
+
+    <p>Проект було започатковано 30 березня 2014 року на 30-годинному хакатоні
+    <a href="http://hackathon.symphony-solutions.eu/" target="_blank">KindHack</a></p>
+
+    <p>Подробиці читайте в <b><a href="http://blog.spellchecker.com.ua/ukrainian-spellchecker-for-russian-speaking-people.html">блозі</a></b></p>
+
+    <h2> Мета проекту</h2>
+    <ul>
+      <li>Допомогти російськомовним українцям перейти на українську.</li>
+      <li>Допомогти уникнути поширених та випадкових помилок.</li>
+    </ul>
+
+    <h2>Стан проекту</h2>
+
+    <p>Проект було розпочато 30 березня 2014 року на 30-годинному хакатоні
+    <a href="http://hackathon.symphony-solutions.eu/" target="_blank">KindHack</a>
+    як форк LanguageTool. Наразі, проект в стані proof-of-concept, більша частина
+    розробки ще попереду. Будь ласка, приєднуйтесь!
+    </p>
+    
+    <h2> Як допомогти? </h2>
+
+    <p><b>Програмісти:</b> розробка лінгвістичного ядра, додатків для браузерів,
+    натівних клієнтів під основні ОС (details to follow).</p>
+
+    <p><b>Дизайнери:</b> допоможіть зробити красиву landing page</p>
+
+    <p><b>Будь-хто</b>: користуйтеся програмою (коли буде готова :), повідомляйте про проблеми, вносить пропозиції.</p>
+
+    <p><b>Поточна потреба:</b> проекту бракує хорошої назви. Будь-які ідеї вітаються!</p>
+
+
+    <h2>Контакти</h2>
+
+    <address>
+    <p>Сивоконь Олексій</p>
+    <p> aleksey.sivokon@gmail.com </p>
+  </address>
+
+  </div>
+
+    <img id="sprite" src='/img/1.jpg' >
+
+<style>
+  #checktextpara {
+    border: 1px solid #777;
+    /*height: 15em;*/
+    margin-top: 50px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 6px;
+    box-shadow: 5px 5px 2px #ddd;
+  }
+
+  #sprite {
+    position: absolute;
+    left: -1000px;
+    bottom: 0px;
+  }
+
+  body {
+    font-family: sans-serif;
+  }
+
+  /* Preload images */
+  body:after
+  {
+    content: url(/img/0.jpg)
+             url(/img/1.jpg)
+             url(/img/2.jpg)
+             url(/img/3.jpg)
+             url(/img/4.jpg)
+             url(/img/5.jpg)
+             url(/img/6.jpg)
+             url(/img/7.jpg)
+             url(/img/8.jpg);
+    display: none;
+  }
+</style>
+
+
+  </body>
+</html>
