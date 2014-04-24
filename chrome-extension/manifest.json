@@ -1,0 +1,17 @@
+{
+  "name": "spellchecker.com.ua tools",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Набір інструментів для української мови",
+  "permissions": [
+    "tabs",
+    "http://*/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://www.bbc.co.uk/ukrainian/*"],
+      "css": [],
+      "js": ["js/jquery-2.0.3.js", "js/checker.js"]
+    }
+  ]
+}
