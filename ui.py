@@ -19,8 +19,8 @@ def proxy():
         "text": text})
     return r.text
 
-@app.route("/api/check", methods=["POST"])
-@crossdomain(origin="*")
+@app.route("/api/check", methods=["POST", "OPTIONS"])
+@crossdomain(origin="*", headers="Content-Type")
 def check():
     texts = request.json['text']
     if not isinstance(texts, list):
