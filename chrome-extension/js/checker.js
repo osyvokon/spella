@@ -52,8 +52,8 @@ var PageContentSpellChecker = function () {
           var s = p.textContent;
           _.each(stopPoints, function (j) {
             out.push(s.slice(i, j));
-            if (startIndex[j]) out.push("<span class='spellingError' style='background-color: yellow'>");
             if (endIndex[j]) out.push("</span>");
+            if (startIndex[j]) out.push("<span class='spellingError' style='background-color: yellow'>");
             i = j;
           });
           out.push(s.slice(i, s.length));
