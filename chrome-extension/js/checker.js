@@ -67,5 +67,7 @@ var PageContentSpellChecker = function () {
   }
 }
 
-var result = PageContentSpellChecker().validatePage();
-console.log("Plugin started");
+$(function() {
+  var result = PageContentSpellChecker().validatePage();
+  console.log("Plugin started");
+});
