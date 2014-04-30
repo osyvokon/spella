@@ -61,7 +61,11 @@ var PageContentSpellChecker = function () {
           _.each(stopPoints, function (j) {
             out.push(s.slice(i, j));
             if (endIndex[j]) out.push("</span>");
-            if (startIndex[j]) out.push("<span class='spellingError' style='background-color: yellow'>");
+            if (startIndex[j]) {
+              var e = startIndex[j];
+              var msg = e.attributes['msg'].value; // TODO: quote "
+              out.push('<span class="spellingError" title="' + msg + '" style="background-color: yellow">');
+            }
             i = j;
           });
           out.push(s.slice(i, s.length));
