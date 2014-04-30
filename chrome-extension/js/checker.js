@@ -18,6 +18,14 @@ var PageContentSpellChecker = function () {
     }
   };
 
+  var lineoffset = function (str, lineno) {
+    var offset = 0;
+    for (var i = 0; i < lineno; i++) {
+      offset = str.indexOf('\n', offset) + 1;
+    }
+    return offset;
+  }
+
 
   return {
     validatePage: function () {
@@ -29,27 +37,27 @@ var PageContentSpellChecker = function () {
         console.log("Got response")
         for (var chunkIndex = 0; chunkIndex < validated.length; chunkIndex++) {
           var p = pp[chunkIndex];
+          var s = p.textContent;
           var v = $($.parseXML(validated[chunkIndex]));
           var startIndex = {}, endIndex = {};
           var stopPoints = [];
-          _.each(v.find("error"), function (error) {
-            var from = Number(error.attributes['fromx'].value),
-                to   = Number(error.attributes['tox'].value);
+          var errors = v.find("error");
+          if (errors.length == 0) continue;
+
+          _.each(errors, function (error) {
+            var from = Number(error.attributes['fromx'].value) + lineoffset(s, Number(error.attributes['fromy'].value)),
+                to   = Number(error.attributes['tox'].value) + lineoffset(s, Number(error.attributes['toy'].value));
             stopPoints.push(from);
             stopPoints.push(to);
             startIndex[from] = error;
             endIndex[to] = error;
           });
 
-          if (stopPoints.length > 0) {
-            console.log("Found error in chunk: ", p.textContent);
-          } else {
-            continue;
-          }
+          console.log("Found error in chunk: ", p.textContent);
 
           var out = [];
           var i = 0;
-          var s = p.textContent;
+          stopPoints.sort();
           _.each(stopPoints, function (j) {
             out.push(s.slice(i, j));
             if (endIndex[j]) out.push("</span>");

@@ -9,7 +9,7 @@
   ],
   "content_scripts": [
     {
-      "matches": ["http://www.bbc.co.uk/ukrainian/*"],
+      "matches": ["http://www.bbc.co.uk/ukrainian/*", "http://ukr.lb.ua/*"],
       "css": [],
       "js": ["js/jquery-2.0.3.js", "js/underscore-min.js", "js/checker.js"]
     }
