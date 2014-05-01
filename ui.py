@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import re
 import requests
 from flask import Flask, request, jsonify
 from flask_crossdomain import crossdomain
@@ -30,6 +31,12 @@ def check():
     return jsonify({"checked": checked})
 
 def _api_check(text):
+    # Replace html tags with spaces. The goal here is to skip tags from
+    # being checked and preserve original offsets (that's why just
+    # stripping tags is not enough)
+    text = re.sub("<.*?>", lambda x: " " * len(x.group(0)), text)
+
+    # Send request to LT API
     r = requests.get(BASE_URL, params={
         "language": "uk",
         "text": text})
