@@ -32,7 +32,7 @@ var PageContentSpellChecker = function () {
       var pp = _.filter($("p,h1,h2,h3,h4"), function (p) {
         return p && p.textContent && (p.textContent.trim() != "");
       });
-      var chunks = $.map(pp, function(n) { return n.textContent; });
+      var chunks = $.map(pp, function(n) { return n.innerHTML; });
       API.requestCorrections(chunks, function (validated) {
         console.log("Got response")
         for (var chunkIndex = 0; chunkIndex < validated.length; chunkIndex++) {

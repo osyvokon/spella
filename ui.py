@@ -39,7 +39,9 @@ def _api_check(text):
     # Send request to LT API
     r = requests.get(BASE_URL, params={
         "language": "uk",
-        "text": text})
+        "text": text,
+        "disabled": "WHITESPACE_RULE"
+        })
     return r.text
 
 if __name__ == '__main__':
