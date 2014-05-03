@@ -37,7 +37,7 @@ var PageContentSpellChecker = function () {
         console.log("Got response")
         for (var chunkIndex = 0; chunkIndex < validated.length; chunkIndex++) {
           var p = pp[chunkIndex];
-          var s = p.textContent;
+          var s = p.innerHTML;
           var v = $($.parseXML(validated[chunkIndex]));
           var startIndex = {}, endIndex = {};
           var stopPoints = [];
@@ -57,7 +57,7 @@ var PageContentSpellChecker = function () {
 
           var out = [];
           var i = 0;
-          stopPoints.sort();
+          stopPoints.sort(function(a, b) { return a - b;});
           _.each(stopPoints, function (j) {
             out.push(s.slice(i, j));
             if (endIndex[j]) out.push("</span>");
