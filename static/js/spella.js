@@ -34,19 +34,6 @@ var init = function() {
 function doit() {
   var langCode = "uk";
   tinyMCE.activeEditor.execCommand("mceWritingImprovementTool", langCode);
-  woodoo();
 }
-
-function woodoo() {
-  var x = Math.floor(Math.random() * 8);
-  var img = "img/" + x + ".jpg";
-  $("#sprite").attr("src", img);
-  $("#sprite").animate({left: "+=1000"}, 200, "swing", function() {
-    setTimeout(function() {
-      $("#sprite").animate({left: "-=1000"}, 200, "swing");
-    }, 1500);
-  });
-}
-
 
 document.addEventListener('DOMContentLoaded', init, false);
