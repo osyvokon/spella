@@ -1,0 +1,19 @@
+{
+    "name": "Spellchecker.com.ua editor",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "Simple text editor that uses spellchecker.com.ua for proofreading",
+    "permissions": [
+        "http://spellchecker.com.ua/*"
+    ],
+    "icons": {
+    },
+    "app": {
+        "background": {
+            "scripts": [
+                //"scripts/jquery-2.0.3.js",
+                "scripts/background.js"
+            ]
+        }
+    }
+}
