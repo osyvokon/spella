@@ -7,6 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 requires = [
     'flask',
     'flask-crossdomain',
+    'requests',
     ]
 
 setup(name='spella',
