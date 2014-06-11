@@ -23,6 +23,10 @@ def proxy():
 @app.route("/api/check", methods=["POST", "OPTIONS"])
 @crossdomain(origin="*", headers="Content-Type")
 def check():
+
+    if not request.json or 'text' not in request.json:
+        abort(400, "json request with `text` field required")
+
     texts = request.json['text']
     if not isinstance(texts, list):
         texts = [texts]
