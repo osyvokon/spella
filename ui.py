@@ -20,8 +20,12 @@ def proxy():
         "text": text})
     return r.text
 
+@app.route("/api/check", methods=["GET"])
+def check_get():
+    return "Only POST method supported"
+
 @app.route("/api/check", methods=["POST", "OPTIONS"])
-@crossdomain(origin="*", headers="Content-Type")
+@crossdomain(origin="*", headers="*")
 def check():
 
     if not request.json or 'text' not in request.json:
