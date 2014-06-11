@@ -1,0 +1,8 @@
+*.o
+moc_*.cpp
+gui/Makefile
+gui/*.user
+ui_*.h
+*.egg-info
+*.swp
+*.swo
