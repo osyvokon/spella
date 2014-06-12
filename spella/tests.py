@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3.3
 # encoding: utf-8
 import unittest
 import requests
 import json
 import xml.etree.cElementTree as etree
-#from spella import Spella
+
 
 class SpellcheckedText(object):
 
@@ -14,12 +14,7 @@ class SpellcheckedText(object):
 
     @staticmethod
     def from_languagetool_response(text, response):
-        try:
-            #import pdb; pdb.set_trace()
-            xml = etree.fromstring(response.encode('utf-8'))
-        except Exception:
-            print response
-            raise
+        xml = etree.fromstring(response.encode('utf-8'))
         errors =  []
         for error in xml.findall("error"):
             errors.append({
@@ -53,8 +48,8 @@ class BaseTestCase(unittest.TestCase):
     def assertSuggests(self, misspelled, expected_replacement):
         suggestions = self.suggest(misspelled)
         if expected_replacement not in suggestions:
-            print "Expected: %s" % expected_replacement
-            print "Found:    %s" % ', '.join(suggestions)
+            print ("Expected: %s" % expected_replacement)
+            print ("Found:    %s" % ', '.join(suggestions))
             self.fail("Expected suggestion not found")
 
 
