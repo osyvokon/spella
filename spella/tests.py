@@ -34,6 +34,7 @@ class BaseTestCase(unittest.TestCase):
         headers = {'Content-Type': 'application/json'}
         r = requests.post(self.api_url + '/api/check', data, headers=headers)
         xml = r.json()['checked'][0]
+        r.connection.close()
         return SpellcheckedText.from_languagetool_response(text, xml)
 
     def suggest(self, text):
