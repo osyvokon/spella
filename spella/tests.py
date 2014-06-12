@@ -61,10 +61,25 @@ class Test_TranslateRussian(BaseTestCase):
         # - є в російському словнику, але відсутнє в українському,
         # - написано без помилок,
         # то такі слова перекладаємо українською й пропонуємо як виправлення.
-        self.assertSuggests("выговор", "догана")
+        self.assertSuggests("выговор", "догану")
         self.assertSuggests("премия", "премія")
         self.assertSuggests("наконец", "нарешті")
 
+    def test_incorrectly_spelled_russian_words(self):
+        # Якщо слово російською мовою написано із помилкою, воно 
+        # також повинне перекладатися на українську
+        self.assertSuggests("выгавор", "догану")
+        self.assertSuggests("ашибка", "помилка")
+        self.assertSuggests("ошибатся", "помилятися")
+        
+    def test_correctly_spelled_russian_words_in_ukr_layout(self):
+        # Пропонуємо переклад російських слов, що
+        # - є в російському словнику, але відсутні в українському,
+        # - написано без помилок,
+        # - але набрано в українській розкладці
+        self.assertSuggests("віговор", "догану")
+
 
 if __name__ == '__main__':
+    
     unittest.main()
